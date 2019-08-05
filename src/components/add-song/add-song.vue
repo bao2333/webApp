@@ -1,7 +1,7 @@
 <template>
     <div class="add-song">
         <progress-bar></progress-bar>
-        <progress-circle></progress-circle>
+        <progress-circle :radius='radius' :percent="percent"></progress-circle>
     </div>
 </template>
 
@@ -11,7 +11,8 @@ import ProgressCircle from '../../base/progress-circle/progress-circle'
 export default {
     data() {
         return {
-
+            radius: 32,
+            percent: 0.3
         }
     },
     methods: {
