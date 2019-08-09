@@ -28,6 +28,7 @@ import {getRecommend, getDiscList} from '../../common/js/mixin'
 import {ERR_OK} from '../../api/config'
 import {mapMutations} from 'vuex'
 export default {
+    mixins: [playlistMixin],
     data() {
         return {
             recommend: [],
@@ -35,10 +36,23 @@ export default {
         }
     },
     created() {
-
+        
     },
     methods: {
+        handlePlayList(playlist) {
+            const bottom = playlist.length > 0 ? '60px' : ''
+            this.$refs.recommend.style.bottom = bottom
+            this.$refs.scroll.refresh()
+        },
+        loadImage() {
+            if (!this.checkloaded) {
+                this.checkloaded = true
+                this.$refs.scroll.refresh()
+            }
+        },
+        selectItem(item) {
 
+        }
     }, 
     components: {
         Slider,
